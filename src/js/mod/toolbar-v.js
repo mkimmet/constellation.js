@@ -82,7 +82,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		  } else {
 		    $.getJSON(str, function(data) {
 			    console.log(data);
-			    gridModel.reset(JSON.parse(data));
+			    gridModel.reset(data);
 		     });
 		  }
 			evt.preventDefault();
