@@ -41,6 +41,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 			'click .bg-load': 'onBgLoad',
 			'click .node-load': 'onNodeLoad',
 			'click .bg-clear': 'onBgClear',
+			'click .node-clear': 'onNodeClear',
 			'click .bg-demo': 'onBgDemo',
 			'change select': 'onSelectGrid'
 		},
