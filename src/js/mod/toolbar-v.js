@@ -69,7 +69,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		},
 		
 		onNodeLoad: function(evt) {
-			alert(this.$('.node-url').val());
+			gridModel.reset(JSON.parse(this.$('.node-url').val()));
 			evt.preventDefault();
 		},
 		
