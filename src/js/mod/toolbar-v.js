@@ -77,6 +77,11 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 			gridModel.setBackground('');
 			evt.preventDefault();
 		},
+		onNodeClear: function(evt) {
+			this.$('.node-url').val('');
+			gridModel.reset();
+			evt.preventDefault();
+		},
 		
 		onBgDemo: function(evt) {
 			var url = $(evt.currentTarget).attr('href');
