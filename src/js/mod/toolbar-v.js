@@ -81,6 +81,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		    gridModel.reset(JSON.parse(str));
 		  } else {
 		    $.getJSON(str, function(data) {
+			    console.log(data);
 			    gridModel.reset(JSON.parse(data));
 		     });
 		  }
