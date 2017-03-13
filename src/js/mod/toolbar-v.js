@@ -39,6 +39,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		events: {
 			'click .action': 'onAction',
 			'click .bg-load': 'onBgLoad',
+			'click .node-load': 'onNodeLoad',
 			'click .bg-clear': 'onBgClear',
 			'click .bg-demo': 'onBgDemo',
 			'change select': 'onSelectGrid'
@@ -64,6 +65,11 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		
 		onBgLoad: function(evt) {
 			gridModel.setBackground(this.$('.bg-url').val());
+			evt.preventDefault();
+		},
+		
+		onNodeLoad: function(evt) {
+			alert("YO!");
 			evt.preventDefault();
 		},
 		
