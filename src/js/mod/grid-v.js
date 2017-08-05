@@ -93,6 +93,16 @@ function( $, _, Backbone, gridModel, selectionModel, windowView ) {
 			this.selectedViews.length = 0;
 			this.setSelection();
 			
+			
+			//SET background-position: -800px -475px !important;
+			if(gridModel.bgSize){
+				roomNumber = parseInt(gridModel.bgSize);
+				
+				x = -800 * (roomNumber%7);
+				y = -475 * Math.floor(roomNumber/7);
+				this.$el.css('background-position', x +'px ' + y + 'px');
+			}
+
 			// Set background image:
 			if (this.lastBg !== gridModel.bg) {
 				this.$el.css('background', gridModel.bg ? 'url('+gridModel.bg+') no-repeat' : '');

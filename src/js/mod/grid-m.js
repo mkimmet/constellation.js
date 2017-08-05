@@ -40,8 +40,9 @@ function( Backbone, _, Const, store, cacheModel ) {
 			return this;
 		},
 		
-		setBackground: function(url) {
+		setBackground: function(url, size) {
 			this.bg = url;
+			this.bgSize = size;
 			this.save();
 			this.update();
 		},

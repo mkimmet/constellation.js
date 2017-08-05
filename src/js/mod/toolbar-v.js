@@ -40,8 +40,10 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 			'click .action': 'onAction',
 			'click .bg-load': 'onBgLoad',
 			'click .node-load': 'onNodeLoad',
+			'click .room-load': 'onRoomLoad',
 			'click .bg-clear': 'onBgClear',
 			'click .node-clear': 'onNodeClear',
+			'click .room-clear': 'onRoomClear',
 			'click .bg-demo': 'onBgDemo',
 			'change select': 'onSelectGrid'
 		},
@@ -57,6 +59,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 				case 'nearest': gridController.selectNearestGridNode(); return;
 				case 'hittest': gridController.hitTestGeometry(); return;
 				case 'print': gridController.print(); return;
+				case 'update': gridController.update(this.$('.room-url').val()); return;
 			}
 		},
 		
@@ -65,7 +68,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		},
 		
 		onBgLoad: function(evt) {
-			gridModel.setBackground(this.$('.bg-url').val());
+			gridModel.setBackground(this.$('.bg-url').val(),this.$('.room-url').val());
 			evt.preventDefault();
 		},
 		
@@ -87,6 +90,17 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		  }
 			evt.preventDefault();
 		},
+
+		onRoomLoad: function(evt) {
+			var str = this.$('.room-url').val();
+			console.log(str);
+			if(str){
+				$.getJSON("/api/room/" + str, function(data) {
+					gridModel.reset(data);
+				});
+			} 
+			evt.preventDefault();
+		},
 		
 		onBgClear: function(evt) {
 			gridModel.setBackground('');
@@ -94,6 +108,11 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 		},
 		onNodeClear: function(evt) {
 			this.$('.node-url').val('');
+			gridModel.reset();
+			evt.preventDefault();
+		},
+		onRoomClear: function(evt) {
+			this.$('.room-url').val('');
 			gridModel.reset();
 			evt.preventDefault();
 		},

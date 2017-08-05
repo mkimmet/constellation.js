@@ -1,3 +1,12 @@
+/* Custom */
+#grid {
+	background-size:5600px 5700px !important;
+	background-repeat: no-repeat !important;
+	width:800px !important;
+	height:475px !important;
+
+}
+
 @font-face {
     font-family: 'KellySlabRegular';
     src: url('KellySlab-Regular-webfont.eot');

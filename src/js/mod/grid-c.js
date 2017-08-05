@@ -3,13 +3,14 @@
 * Defines application business logic and consolidates behavior into a single API.
 */
 define([
+	'lib/jquery',
 	'lib/underscore',
 	'lib/backbone',
 	'lib/constellation',
 	'./grid-m',
 	'./selection-m'
 ],
-function( _, Backbone, constellation, gridModel, selectionModel ) {
+function( $, _, Backbone, constellation, gridModel, selectionModel ) {
 	
 	var GridController = Backbone.Model.extend({
 		// Tests if the environment is configured for performing node operations.
@@ -33,6 +34,22 @@ function( _, Backbone, constellation, gridModel, selectionModel ) {
 			if (typeof console !== 'undefined' && console.log) {
 				console.log( JSON.stringify(gridModel.toJSON()) );
 				this.alert("Grid data printed to your console");
+			} else {
+				this.alert("No console available");
+			}
+		},
+
+		// Update Room
+		update: function(roomNumber) {
+			current = this;
+			if (typeof console !== 'undefined' && console.log) {
+				$.ajax({
+					type: "PUT",
+					url: "/api/room/"+roomNumber,
+					data: { "room": JSON.stringify(gridModel.toJSON())},
+					
+				}).success(function(data){ current.alert("Saved!"); });
+				this.alert("Saved!");
 			} else {
 				this.alert("No console available");
 			}
