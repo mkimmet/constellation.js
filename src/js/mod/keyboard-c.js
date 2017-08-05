@@ -18,6 +18,7 @@ function( $, gridController ) {
 		.on('keydown', function(evt) {
 			if (_enabled) {
 				switch ( evt.which ) {
+					/*
 					case 8: stop(evt); gridController.deleteGeometry(); return false; // "delete"
 					case 66: stop(evt); gridController.splitNodes(); return false; // "b"
 					case 67: stop(evt); gridController.print(); return false; // "c"
@@ -27,6 +28,7 @@ function( $, gridController ) {
 					case 83: stop(evt); gridController.snapNodeToGrid(); return false; // "s"
 					case 78: stop(evt); evt.ctrlKey ? gridController.newGrid() : gridController.selectNearestGridNode(); return false; // "n"
 					case 72: stop(evt); gridController.hitTestGeometry(); return false; // "h"
+					*/
 				}
 			}
 			//console.log(evt.which);

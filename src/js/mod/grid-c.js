@@ -54,6 +54,12 @@ function( $, _, Backbone, constellation, gridModel, selectionModel ) {
 				this.alert("No console available");
 			}
 		},
+
+		// Update Polygon
+		updatePolygon: function(polygonId, newId, data) {
+			//update
+			gridModel.updatePolygon(polygonId, newId, JSON.parse(data));
+		},
 		
 		// Joins all nodes within the current selection group.
 		joinNodes: function() {

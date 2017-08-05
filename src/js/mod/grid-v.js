@@ -332,6 +332,12 @@ function( $, _, Backbone, gridModel, selectionModel, windowView ) {
 			else {
 				// Single-click polygon: perform selection box.
 				if ( !shiftKey ) {
+					//set the polygon id to the text field
+					var poly = gridModel.getPolygonById( id );
+					$(".polygon-id").val(id);
+					$(".new-polygon-id").val(poly.id);
+					$(".polygon-data").val(JSON.stringify(poly.data));
+					//console.log(JSON.stringify(poly));
 					selectionModel.deselectAll();
 				}
 				if ( selectionModel.toggle(id) ) {

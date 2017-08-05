@@ -39,6 +39,7 @@
 		<li><button class="action" data-action="hittest">Hittest Geometry <span>(h)</span></button></li>
 		<li><button class="action" data-action="print">Print to Console <span>(c)</span></button></li>
 		<li><button class="action" data-action="update">Update Room</button></li>
+		<li><button class="action" data-action="updatePolygon">Update Polygon</button></li>
 	</ul>
 	
 	<h2>Background</h2>
@@ -55,6 +56,13 @@
 		<button class="room-load">Reload</button> 
 		<a href="#" class="room-clear">clear</a> | 
 	</fieldset>
+	<input type="hidden" class="polygon-id" placeholder="Selected Polygon Name"/>
+	<br/><br/>
+	<h2>Polygon Id</h2>
+	<input type="text" class="new-polygon-id" placeholder="Polygon Id"/>
+	<br/><br/>
+	<h2>Polygon Data</h2>
+	<textarea class="polygon-data"></textarea>
 	<br/><br/>
 	<h2>Load Nodes</h2>
 	<fieldset>

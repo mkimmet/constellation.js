@@ -627,6 +627,16 @@
 			}
 			return null;
 		},
+
+		// Update a polygon setting the name and the data fields
+		updatePolygon: function(id, newId, data) {
+			if(this.polys.hasOwnProperty(id)){
+				this.polys[id].data = data;
+				this.polys[id].id = newId;
+				return this.polys[id];
+			}
+			return null;
+		},
 		
 		// Gets a polygon by id reference.
 		getPolygonById: function(id) {

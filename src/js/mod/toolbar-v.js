@@ -60,6 +60,7 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 				case 'hittest': gridController.hitTestGeometry(); return;
 				case 'print': gridController.print(); return;
 				case 'update': gridController.update(this.$('.room-url').val()); return;
+				case 'updatePolygon': gridController.updatePolygon(this.$('.polygon-id').val(),this.$('.new-polygon-id').val(),this.$('.polygon-data').val()); return;
 			}
 		},
 		
