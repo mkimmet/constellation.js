@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
-router.route('/room')
+router.route('/room/:room_id')
     // create a new room using POST (accessed at POST http://localhost:8080/api/room)
     .post(function(req, res) {
         //Need to send it a body x-www-form-urlencoded field called room with the json for a room
@@ -30,7 +30,7 @@ router.route('/room')
 
         //SAVE ROOM HERE
         //Writing file Sync (overwrites)
-        var roomFile = 'c:/dev/constellation.js/room1.json';
+        var roomFile = './src/rooms/room' + req.params.room_id + '.json';
         //fs.writeFileSync(fileSource, "Writing to a file synchronously from node.js111", {"encoding":'utf8'});
         //var roomFile = 'c:/dev/constellation.js/room' + req.params.room_id + '.json';
         
@@ -58,7 +58,7 @@ router.route('/room')
         //req.params.room_id
 
         //reads file
-        var fileSource = 'c:/dev/constellation.js/room' + req.params.room_id + '.json';
+        var fileSource = './src/rooms/room' + req.params.room_id + '.json';
         var fileData = fs.readFileSync(fileSource, "utf8");
         var room = JSON.parse(fileData);
 
@@ -78,7 +78,7 @@ router.route('/room')
     // update the room with this id (accessed at PUT http://localhost:8080/api/room/:room_id)
     .put(function(req, res) {
         //Writing file Sync (overwrites)
-        var roomFile = 'c:/dev/constellation.js/room' + req.params.room_id + '.json';
+        var roomFile = './src/rooms/room' + req.params.room_id + '.json';
         fs.writeFileSync(roomFile, req.body.room, {"encoding":'utf8'});
     });
 
