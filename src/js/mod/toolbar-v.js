@@ -94,12 +94,14 @@ function( $, _, Backbone, gridModel, gridController, windowView ) {
 
 		onRoomLoad: function(evt) {
 			var str = this.$('.room-url').val();
+			
 			console.log(str);
 			if(str){
 				$.getJSON("/api/room/" + str, function(data) {
 					gridModel.reset(data);
 				});
 			} 
+			gridModel.setBackground('/assets/bg.png',this.$('.room-url').val());
 			evt.preventDefault();
 		},
 		
